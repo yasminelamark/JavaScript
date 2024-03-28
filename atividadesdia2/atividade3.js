@@ -1,9 +1,27 @@
 const leia = require('readline-sync');
 
-const nomeDoador = readline.question("Digite o nome do doador: ")
-const idadeDoador = readline.question("'Digite a idade do doador: ")
-const primeiroDoacao = readline.question("E sua primeira doacao?")
 
-var boleanoDoacao;
+let nomeDoador = leia.question("Digite o nome do doador: ");
+let idadeDoador = leia.question("'Digite a idade do doador: ");
+let primeiraDoacao = leia.keyInYNStrict("E sua primeira doacao? ");
 
-if(primeiraDoacao ==="sim" || primeiraDoacao ==="n"{ boleanoDoacao})
+
+
+
+if(primeiraDoacao ==="|| primeiraDoacao ==="n")
+if (idade >= 18 && idade < 69) {
+    if (idade >= 60 && idade <= 69 && primeiraDoacao === "n"){
+        console.log(nome + "não esta apto para doar sangue!")
+    }else {
+        console.log(nome +" está apto para doar sangue!")
+    }
+  } else {
+      console.log(nome + "não esta apto para doar sangue!")
+;
+  }
+
+
+
+
+
+
