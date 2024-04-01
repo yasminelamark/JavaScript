@@ -1,0 +1,57 @@
+const readline = require('readline-sync');
+
+let continuar = true;
+let totalPessoas = 0;
+let somaIdades = 0;
+let backendCount = 0;
+let mulheresFrontendCount = 0;
+let homensMobileCount = 0;
+let naoBinariosFullStackCount = 0;
+
+while (continuar) {
+    // Ler idade
+    const idade = parseInt(readline.question("Digite a idade do colaborador: "));
+    somaIdades += idade;
+
+    // Ler identidade de gênero
+    const genero = parseInt(readline.question("Digite a identidade de gênero (1-Mulher Cis, 2-Homem Cis, 3-Nao Binario, 4-Mulher Trans, 5-Homem Trans, 6-Outros): "));
+
+    // Ler tipo de desenvolvedor
+    const desenvolvedor = parseInt(readline.question("Digite o tipo de desenvolvedor (1-Backend, 2-Frontend, 3-Mobile, 4-FullStack): "));
+
+    // Contagem de pessoas desenvolvedoras Backend
+    if (desenvolvedor === 1) {
+        backendCount++;
+    }
+
+    // Contagem de Mulheres Cis e Trans desenvolvedoras Frontend
+    if ((genero === 1 || genero === 4) && desenvolvedor === 2) {
+        mulheresFrontendCount++;
+    }
+
+    // Contagem de Homens Cis e Trans desenvolvedores Mobile maiores de 40 anos
+    if ((genero === 2 || genero === 5) && desenvolvedor === 3 && idade > 40) {
+        homensMobileCount++;
+    }
+
+    // Contagem de Não Binários desenvolvedores FullStack menores de 30 anos
+    if (genero === 3 && desenvolvedor === 4 && idade < 30) {
+        naoBinariosFullStackCount++;
+    }
+
+    totalPessoas++;
+
+    // Perguntar se deseja continuar
+    const resposta = readline.question("Deseja continuar (S/N)? ");
+    if (resposta.toUpperCase() !== 'S') {
+        continuar = false;
+    }
+}
+
+// Resultados
+console.log("Número de pessoas desenvolvedoras Backend:", backendCount);
+console.log("Número de Mulheres Cis e Trans desenvolvedoras Frontend:", mulheresFrontendCount);
+console.log("Número de Homens Cis e Trans desenvolvedores Mobile maiores de 40 anos:", homensMobileCount);
+console.log("Número de Não Binários desenvolvedores FullStack menores de 30 anos:", naoBinariosFullStackCount);
+console.log("Número total de pessoas que responderam à pesquisa:", totalPessoas);
+console.log("Média de idade das pessoas que responderam à pesquisa:", (somaIdades / totalPessoas).toFixed(2));

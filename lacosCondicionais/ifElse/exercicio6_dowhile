@@ -1,0 +1,25 @@
+const readline = require('readline-sync');
+
+let somaMultiplosDe3 = 0;
+let quantidadeMultiplosDe3 = 0;
+let numero;
+
+console.log("Digite numeros inteiros. Digite 0 para encerrar.");
+
+do {
+    numero = parseInt(readline.question("Digite um numero: "));
+    
+    if (numero !== 0 && numero % 3 === 0) {
+        somaMultiplosDe3 += numero;
+        quantidadeMultiplosDe3++;
+    }
+} while (numero !== 0);
+
+if (quantidadeMultiplosDe3 > 0) {
+    const mediaMultiplosDe3 = somaMultiplosDe3 / quantidadeMultiplosDe3;
+    console.log("A média de todos os números múltiplos de 3 é:", mediaMultiplosDe3.toFixed(2));
+} else {
+    console.log("Nenhum número múltiplo de 3 foi digitado.");
+}
+
+
